@@ -2,7 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'views/views.dart';
+import 'pages/pages.dart';
+import 'repositories/auth_repository.dart';
 import 'bloc_observer.dart';
 import 'firebase_options.dart';
 
@@ -13,7 +14,8 @@ Future<void> main() {
       await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
-      runApp(const App());
+      final authRepository = AuthRepository();
+      runApp(App(authRepository: authRepository));
     },
     blocObserver: AppBlocObserver(),
   );
