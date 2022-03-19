@@ -27,10 +27,8 @@ class AuthRepository {
   }
 
   /// sign up with email and password
-  Future<void> signUpWithEmailAndPassword({
-    required String email,
-    required String password,
-  }) async {
+  Future<void> signUpWithEmailAndPassword(
+      {required String email, required String password}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
@@ -46,10 +44,8 @@ class AuthRepository {
   }
 
   /// login with email and password
-  Future<void> logInWithEmailAndPassword({
-    required String email,
-    required String password,
-  }) async {
+  Future<void> signInWithEmailAndPassword(
+      {required String email, required String password}) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
