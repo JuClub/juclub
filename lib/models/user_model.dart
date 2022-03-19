@@ -20,6 +20,17 @@ class User extends Equatable {
   bool get isEmpty => this == User.empty;
   bool get isNotEmpty => this != User.empty;
 
+  User copyWith(
+      {String? email, String? name, String? avatar, bool? isNewUser}) {
+    return User(
+      id: id,
+      email: email ?? this.email,
+      name: name ?? this.name,
+      avatar: avatar ?? this.avatar,
+      isNewUser: isNewUser ?? this.isNewUser,
+    );
+  }
+
   @override
   List<Object?> get props => [
         email,
