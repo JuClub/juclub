@@ -17,7 +17,7 @@ class LoginForm extends StatelessWidget {
           label: 'Use Phone / Email',
           iconName: FontAwesomeIcons.user,
           onPressed: () {
-            
+
           },
         ),
         commonSpace(),
