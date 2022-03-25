@@ -44,7 +44,7 @@ class AuthRepository {
   }
 
   /// login with email and password
-  Future<void> signInWithEmailAndPassword(
+  Future<void> logInWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
