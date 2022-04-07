@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-  static Page page() => const MaterialPage<void>(child: HomePage());
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Scaffold(
+      appBar: AppBar(title: const Text('Home')),
+      body: Center(
+        child: ElevatedButton(child: const Text("LogOut"), onPressed: () {}),
+      ),
+    );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:flow_builder/flow_builder.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,21 +20,21 @@ class App extends StatelessWidget {
       value: _authRepository,
       child: BlocProvider(
         create: (_) => AuthBloc(authRepository: _authRepository),
-        child: const AppView(),
+        child: AppView(),
       ),
     );
   }
 }
 
 class AppView extends StatelessWidget {
-  const AppView({Key? key}) : super(key: key);
+  AppView({Key? key}) : super(key: key);
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: FlowBuilder(
-          state: context.select((AuthBloc bloc) => bloc.state.status),
-          onGeneratePages: onGenerateAppViewPages),
+    return MaterialApp.router(
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }
